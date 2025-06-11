@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import "./App.css";
 
-const App = () => {
+function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (firstName.trim() && lastName.trim()) {
-      setFullName(`Full Name: ${firstName.trim()} ${lastName.trim()}`);
+    if (firstName && lastName) {
+      setFullName(`Full Name: ${firstName} ${lastName}`);
     }
   };
 
   return (
-    <div className="container">
+    <div>
       <h1>Enter Your Name</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -36,6 +35,6 @@ const App = () => {
       {fullName && <h2>{fullName}</h2>}
     </div>
   );
-};
+}
 
 export default App;
